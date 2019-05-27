@@ -182,6 +182,10 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fas fa-info-circle fa-sm fa-fw mr-2 text-gray-400"></i>
+                  About Apps
+                </a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
