@@ -70,8 +70,7 @@ CREATE TABLE `tbl_admin` (
 
 INSERT INTO `tbl_admin` (`kd_admin`, `nama_admin`, `username_admin`, `password_admin`, `img_admin`, `email_admin`, `level_admin`, `status_admin`, `date_create_admin`) VALUES
 ('ADM0001', 'Administrator', 'admin', '$2y$10$v25.H4XMgDztA2NmxeJQSeaRl2nKboXeRTo1BjPe37R0JG3rXraZG', 'assets/backend/img/default.png', 'adm@gmail.com', '2', 1, '1552276812'),
-('ADM0002', 'Bahyu Sanciko', 'bahyu', '$2y$10$ADbNVZYgiDi8SqGl1bB2NOgCufT2sK5v/T3BSZcIpFPVljDSb2S2K', 'assets/backend/img/default.png', 'cbahyu@gmail.com', '1', 1, '1552819095'),
-('ADM0003', 'Bayu sayang suci', 'bayusuci', '$2y$10$HEtSDtGsU7PZD8cmvL9DQ.NnOCYBwXmK2mk24qMcbvd.TpzQgN8f.', 'assets/backend/img/default.png', 'baci@gmail.com', '2', 1, '1553503707');
+('ADM0002', 'Bahyu Sanciko', 'bahyu', '$2y$10$ADbNVZYgiDi8SqGl1bB2NOgCufT2sK5v/T3BSZcIpFPVljDSb2S2K', 'assets/backend/img/default.png', 'cbahyu@gmail.com', '1', 1, '1552819095');
 
 -- --------------------------------------------------------
 
