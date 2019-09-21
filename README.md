@@ -1,1 +1,34 @@
 # Tiket-Bus
+
+Utility for loading JSON configuration for command-line tools, nothing interesting, but copy/pasting is lame.
+
+---
+
+[![GoDoc](https://godoc.org/github.com/tj/go-config?status.svg)](https://godoc.org/github.com/tj/go-config)
+![](https://img.shields.io/badge/license-MIT-blue.svg)
+![](https://img.shields.io/badge/status-stable-green.svg)
+
+<a href="https://apex.sh"><img src="http://tjholowaychuk.com:6000/svg/sponsor"></a>
+
+Saya ada aplikasi pemesanan tiket bus sederhana berbasis web menggunakan ci 3.1.10
+
+Fitur :
+
+- User Pelanggan Dengan verfikasi email
+- Pemesanan Tiket 
+- Pilih Kursi 
+-  List tiket User di frontend maupun backend
+- Send Mail Alert Pembayaran dan E-ticket 
+- CRUD Bus Jadwal Tujuan , bank dan dll
+- Laporan Tiket Pemesanan
+
+untuk backend hanya ada 2 level admin dan owner
+login admin pass admin untuk admin
+login owner pas admin untuk owner
+
+https://github.com/bahyusanciko/Tiket-Bus
+
+video dokumentasi
+https://www.youtube.com/watch?v=_0jOPuKnLxo
+
+semoga bermanfaat teman teman
