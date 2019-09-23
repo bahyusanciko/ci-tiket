@@ -181,7 +181,7 @@ class Tiket extends CI_Controller {
                'protocol'  => 'smtp',
                'smtp_host' => 'ssl://smtp.gmail.com',
                'smtp_user' => 'cbahyu@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => '',      // Password gmail kamu
+               'smtp_pass' => 'smkn1baso',      // Password gmail kamu
                'smtp_port' => 465,
                'crlf'      => "rn",
                'newline'   => "rn"
@@ -197,7 +197,7 @@ class Tiket extends CI_Controller {
             echo 'Sukses! email berhasil dikirim.';
             $this->load->view('frontend/checkout', $data);
         } else {
-            echo 'Error! email tidak dapat dikirim.';
+           echo 'Error! Kirim email error';
         }
 	}
 	public function caritiket(){
