@@ -183,18 +183,14 @@ class Tiket extends CI_Controller {
                'smtp_user' => 'cbahyu@gmail.com',    // Ganti dengan email gmail kamu
                'smtp_pass' => 'smkn1baso',      // Password gmail kamu
                'smtp_port' => 465,
-               'crlf'      => "rn",
-               'newline'   => "rn"
            ];
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
         $this->email->from('XTRANS');
         $this->email->to($to);
-        // $this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
         $this->email->subject($subject);
         $this->email->message($message);
         if ($this->email->send()) {
-            echo 'Sukses! email berhasil dikirim.';
             $this->load->view('frontend/checkout', $data);
         } else {
            echo 'Error! Kirim email error';
