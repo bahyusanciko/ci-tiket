@@ -181,9 +181,9 @@ class Tiket extends CI_Controller {
                'protocol'  => 'smtp',
                'smtp_host' => 'ssl://smtp.gmail.com',
                'smtp_user' => 'cbahyu@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => 'smkn1baso',      // Password gmail kamu
+               'smtp_pass' => '',      // Password gmail kamu
                'smtp_port' => 465,
-           ];
+		   ];
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
         $this->email->from('XTRANS');
@@ -191,6 +191,7 @@ class Tiket extends CI_Controller {
         $this->email->subject($subject);
         $this->email->message($message);
         if ($this->email->send()) {
+			$this->session->set_flashdata('message', 'swal("Cek", "Email kamu untuk melakukan pembayaran", "success");');
             $this->load->view('frontend/checkout', $data);
         } else {
            echo 'Error! Kirim email error';
