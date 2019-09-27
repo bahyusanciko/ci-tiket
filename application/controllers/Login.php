@@ -127,8 +127,8 @@ class Login extends CI_Controller {
                'charset'   => 'utf-8',
                'protocol'  => 'smtp',
                'smtp_host' => 'ssl://smtp.gmail.com',
-               'smtp_user' => 'cbahyu@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => '',      // Password gmail kamu
+               'smtp_user' => 'sancikob@gmail.com',    // Ganti dengan email gmail kamu
+               'smtp_pass' => 'tiketbusci3',      // Password gmail kamu
                'smtp_port' => 465,
                'crlf'      => "rn",
                'newline'   => "rn"
