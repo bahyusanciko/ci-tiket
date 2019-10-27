@@ -24,10 +24,34 @@ class Profile extends CI_Controller {
 			'img_pelanggan'		=> 'assets/frontend/img/default.png',
 			'alamat_pelanggan'		=> $this->input->post('alamat'),
 			'telpon_pelanggan'		=> $this->input->post('hp'),
-			 );
-		$this->db->update('tbl_pelanggan', $update,$where);
-		$this->session->set_flashdata('message', 'swal("Berhasil", "Data Di Edit", "success");');
-		redirect('profile/profilesaya/'.$id);
+		);
+		$update = $this->db->update('tbl_pelanggan', $update,$where);
+
+		if($update){
+			$this->db->where('kd_pelanggan',$id);
+			$query = $this->db->get('tbl_pelanggan');
+			foreach ($query->result() as $row) {
+				$sess = array(
+					'kd_pelanggan' => $row->kd_pelanggan,
+					'username' => $row->username_pelanggan,
+					'password' => $row->password_pelanggan,
+					'ktp'     => $row->no_ktp_pelanggan,
+					'nama_lengkap'     => $row->nama_pelanggan,
+					'img_pelanggan'	=> $row->img_pelanggan,
+					'email'   => $row->email_pelanggan,
+					'telpon'   => $row->telpon_pelanggan,
+					'alamat'	=> $row->alamat_pelanggan
+				);
+			}
+			$this->session->set_userdata($sess);
+
+			$this->session->set_flashdata('message', 'swal("Berhasil", "Data Di Edit", "success");');
+			redirect('profile/profilesaya/'.$id);
+		}else{
+			$this->session->set_flashdata('gagal', '<div class="alert alert-danger" role="alert">
+				Update Profile gagal
+				</div>');
+		}
 	}
 	public function tiketsaya($id=''){
 		$this->getsecurity();
@@ -41,17 +65,17 @@ class Profile extends CI_Controller {
 		// die(print_r($pelanggan));
 		$this->form_validation->set_rules('currentpassword', 'currentpassword', 'trim|required|min_length[8]',array(
 			'required' => 'Masukan Password',
-			 ));
+		));
 		$this->form_validation->set_rules('new_password1', 'new_password1', 'trim|required|min_length[8]|matches[new_password2]',array(
 			'required' => 'Masukan Password.',
 			'matches' => 'Password Tidak Sama.',
 			'min_length' => 'Password Minimal 8 Karakter.'
-			 ));
+		));
 		$this->form_validation->set_rules('new_password2', 'new_password2', 'trim|required|min_length[8]|matches[new_password1]',array(
 			'required' => 'Masukan Password.',
 			'matches' => 'Password Tidak Sama.',
 			'min_length' => 'Password Minimal 8 Karakter.'
-			 ));
+		));
 		if ($this->form_validation->run() == false) {
 			$this->load->view('frontend/changepassword');
 		} else {
@@ -59,20 +83,20 @@ class Profile extends CI_Controller {
 			$newpassword 	 = $this->input->post('new_password1');
 			if (!password_verify($currentpassword, $pelanggan['password_pelanggan'])) {
 				$this->session->set_flashdata('gagal', '<div class="alert alert-danger" role="alert">
-					  Password Sebelumnya Salah
+					Password Sebelumnya Salah
 					</div>');
 				redirect('profile/changepassword');
 			}elseif ($currentpassword == $newpassword) {
 				$this->session->set_flashdata('gagal', '<div class="alert alert-danger" role="alert">
-					  Password Tidak Boleh Sama Sebelumnya
+					Password Tidak Boleh Sama Sebelumnya
 					</div>');
 				redirect('profile/changepassword');
 			}else{
 				$password_hash = password_hash($newpassword, PASSWORD_DEFAULT);
 				$where = array('kd_pelanggan' => $id );
 				$update = array(
-				'password_pelanggan'			=> $password_hash,
-				 );
+					'password_pelanggan'			=> $password_hash,
+				);
 				$this->db->update('tbl_pelanggan', $update,$where);
 				$this->session->set_flashdata('message', 'swal("Berhasil", "Data Di Edit", "success");');
 				redirect('profile/profilesaya/'.$id);
