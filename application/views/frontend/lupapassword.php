@@ -42,8 +42,9 @@
 				                    </button>
 				                  </form>
 								<div class="text-center">
-									<a class="d-block small mt-3" href="<?php echo base_url() ?>login/daftar">Daftar</a>
+									<p><a class="d-block small mt-3" href="<?php echo base_url() ?>login/daftar">Daftar</a>
 									<a class="d-block small" href="<?php echo base_url() ?>login">Login</a>
+									</p>
 								</div>
 							</div>
 						</div>

@@ -84,8 +84,7 @@
 									<button class="btn btn-primary btn-block">Daftar</button>
 								</form>
 								<div class="text-center">
-									<a class="d-block small mt-3" href="<?php echo base_url() ?>login">Login Page</a>
-									<a class="d-block small" href="forgot-password.html">Lupa Password?</a>
+									<p><a class="d-block small mt-3" href="<?php echo base_url() ?>login">Login Page</a></p>
 								</div>
 							</div>
 						</div>
