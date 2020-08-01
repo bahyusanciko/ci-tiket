@@ -41,9 +41,6 @@ class Home extends CI_Controller {
         if ($this->form_validation->run() == FALSE || !isset($response['success']) || $response['success'] <> true) {
             $this->index();
         } else {
-            // lakukan proses validasi login disini
-            // pada contoh ini saya anggap login berhasil dan saya hanya menampilkan pesan berhasil
-            // tapi ini jangan di contoh ya menulis echo di controller hahahaha
             echo 'Berhasil';
         }
 	}
