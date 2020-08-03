@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
 	function __construct(){
 	parent::__construct();
-		$this->load->helper('Tglindo_helper');
-		$this->load->model('Getkod_model');
+		$this->load->helper('tglindo_helper');
+		$this->load->model('getkod_model');
 		$this->load->library('form_validation');
 		$this->getsecurity();
 		date_default_timezone_set("Asia/Jakarta");
