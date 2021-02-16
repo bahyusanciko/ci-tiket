@@ -36,7 +36,6 @@ class Order extends CI_Controller {
 	 	}
 	}
 	public function inserttiket($value=''){
-		// die(print_r($_POST));
 		$id = $this->input->post('kd_order');
 		$asal = $this->input->post('asal_beli');
 		$tiket = $this->input->post('kd_tiket');
@@ -71,7 +70,6 @@ class Order extends CI_Controller {
 				'create_tgl_tiket' => date('Y-m-d'),
 				'create_admin_tiket' => $this->session->userdata('username_admin')
 			);
-		// die(print_r($simpan));
 		$this->db->insert('tbl_tiket', $simpan);
 		}
 		$this->session->set_flashdata('message', 'swal("Berhasil", "Tiket Order Berhasil Di Proses", "success");');
@@ -81,11 +79,13 @@ class Order extends CI_Controller {
 	}
 	public function kirimemail($id=''){
 		$data['cetak'] = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan WHERE kd_order ='".$id."'")->result_array();
-		$data['asal'] = $this->db->query("SELECT * FROM tbl_tujuan WHERE kd_tujuan ='".$data['cetak']['asal_order']."'")->row_array();
-		$pelanggan = $this->db->query("SELECT email_pelanggan FROM tbl_pelanggan WHERE kd_pelanggan ='".$data['cetak'][0]['kd_pelanggan']."'")->row_array();
+		$asal = $data['cetak'][0]['asal_order'];
+		$kodeplg = $data['cetak'][0]['kd_pelanggan'];
+		$data['asal'] = $this->db->query("SELECT * FROM tbl_tujuan WHERE kd_tujuan ='$asal'")->row_array();
+		$pelanggan = $this->db->query("SELECT email_pelanggan FROM tbl_pelanggan WHERE kd_pelanggan ='$kodeplg'")->row_array();
 		//email
 		$subject = 'E-ticket - Order ID '.$id.' - '.date('dmY');
-		$message = $this->load->view('frontend/cetaktiket', $data, TRUE);
+		$message = $this->load->view('frontend/cetaktiket', $data ,TRUE);
 		$attach  = base_url("assets/backend/upload/etiket/".$id.".pdf");
 		$to 	= $pelanggan['email_pelanggan'];
 		$config = array(
@@ -93,8 +93,8 @@ class Order extends CI_Controller {
                'charset'   => 'utf-8',
                'protocol'  => 'smtp',
                'smtp_host' => 'ssl://smtp.gmail.com',
-               'smtp_user' => 'sancikob@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => 'tiketbusci3',      // Password gmail kamu
+               'smtp_user' => 'bahyu.sanciko@gmail.com',    // Ganti dengan email gmail kamu
+               'smtp_pass' => 'smkn1baso',      // Password gmail kamu
                'smtp_port' => 465,
                'crlf'      => "rn",
                'newline'   => "rn"
@@ -106,7 +106,6 @@ class Order extends CI_Controller {
         $this->email->attach($attach);
         $this->email->subject($subject);
         $this->email->message($message);
-         // Tampilkan pesan sukses atau error
         if ($this->email->send()) {
         	$this->session->set_flashdata('message', 'swal("Berhasil", "E Tiket terkirim", "success");');
 			redirect('backend/order/vieworder/'.$id);

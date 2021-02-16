@@ -11,5 +11,12 @@ class M_pdf {
     {
         $this->param =$param;
         $this->pdf = new mPDF($this->param);
+        try {
+            $this->pdf = new mPDF($this->param);
+
+		} catch (Exception $e) {
+
+		}
+
     }
 }

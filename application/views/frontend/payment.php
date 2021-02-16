@@ -17,7 +17,7 @@
 		<title>Pembayaran</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/frontend/datepicker/dcalendar.picker.css">
+		<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/datepicker/dcalendar.picker.css">
 		<?php $this->load->view('frontend/include/base_css'); ?>
 	</head>
 	<body>
@@ -31,7 +31,7 @@
 						<!-- Default Card Example -->
 						<div class="card mb-5">
 							<div class="card-header" align="center">
-								<b><i class="fa fa-ticket"></i> KODE ORDER <?php echo $tiket[0]['kd_order']; ?></b>
+								<b><i class="fa fa-ticket"></i> KODE ORDER <?= $tiket[0]['kd_order']; ?></b>
 							</div>
 							<div class="card-body">
 								<div class="table-responsive">
@@ -49,11 +49,11 @@
 											<?php $i = 1; foreach ($tiket as $row) { ?>
 											<tr>
 												<?php $now = hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].''))).', '.date('H:i',strtotime($row['jam_berangkat_jadwal']));?>
-												<th scope="row"><?php echo $row['kd_tiket']; ?></th>
-												<td><?php echo $row['kd_jadwal']." [".$row['kd_bus'].']' ?></td>
-												<td><?php echo $now?></td>
-												<td><?php echo $row['no_kursi_order']; ?></td>
-												<td>Rp <?php echo $row['harga_jadwal']; ?></td>
+												<th scope="row"><?= $row['kd_tiket']; ?></th>
+												<td><?= $row['kd_jadwal']." [".$row['kd_bus'].']' ?></td>
+												<td><?= $now?></td>
+												<td><?= $row['no_kursi_order']; ?></td>
+												<td>Rp <?= $row['harga_jadwal']; ?></td>
 											</tr>
 											<?php } ?>
 											<td colspan="5"> <b class="pull-right">Total Rp <?php $total = $count * $tiket[0]['harga_jadwal'] ; echo $total ?></b></td>
@@ -81,10 +81,10 @@
 								<div class="offset-lg-1 col-lg-10 offset-sm-0 col-sm-12">
 									<div class="row">
 										<div class="col-md-3 col-4 mb-xs-10 pr-xs-0">
-											<img src="<?php echo base_url().$tiket[0]['photo_bank'] ?>" height="50" width="100" alt="Icon Bank" />
+											<img src="<?= base_url().$tiket[0]['photo_bank'] ?>" height="50" width="100" alt="Icon Bank" />
 										</div>
 										<div class="col-md-6 col-8 mb-xs-10 rekening-text">
-											<p ><input type="hidden" name="" id="myInput" value="<?php echo $tiket[0]['nomrek_bank']; ?> an <?php echo $tiket[0]['nama_bank'] ?>"><h4 id="myInput"><?php echo number_format((float)($tiket[0]['nomrek_bank']),0,"-","-"); ?> an <?php echo $tiket[0]['nama_bank'] ?></h4></p>
+											<p ><input type="hidden" name="" id="myInput" value="<?= $tiket[0]['nomrek_bank']; ?> an <?= $tiket[0]['nama_bank'] ?>"><h4 id="myInput"><?= number_format((float)($tiket[0]['nomrek_bank']),0,"-","-"); ?> an <?= $tiket[0]['nama_bank'] ?></h4></p>
 										</div>
 										<div class="col-md-3 copy-link">
 											<button onclick="myFunction()" class="btn">Salin No Rek</button>
@@ -95,7 +95,7 @@
 									<h4><b> <p>Sebesar</p></b></h4>
 								</div>
 								<div class="col-12 bigger-title text-orange">
-									<h3 ><p >Rp <?php echo number_format($total,0,',','.') ;?>,-</p></h3>
+									<h3 ><p >Rp <?= number_format($total,0,',','.') ;?>,-</p></h3>
 								</div>
 								<div class="col-14 mt-15 mb-15">
 									<hr>
@@ -103,11 +103,11 @@
 										<h3 class="mb-20">PANDUAN PEMBAYARAN</h3>
 										<div class="">
 											<ol class="ordered-list" align="left">
-												<li>Masukkan Kartu ATM <?php echo $tiket[0]['nama_bank']; ?> Anda</li>
+												<li>Masukkan Kartu ATM <?= $tiket[0]['nama_bank']; ?> Anda</li>
 												<li>Masukan PIN ATM Anda</li>
 												<li>Pilih Menu Transaksi Lainnya</li>
-												<li>Pilih menu Transfer dan Ke Rek <?php echo $tiket[0]['nama_bank']; ?></li>
-												<li>Masukkan no rekening <?php echo $tiket[0]['nama_bank']; ?> yang dituju</li>
+												<li>Pilih menu Transfer dan Ke Rek <?= $tiket[0]['nama_bank']; ?></li>
+												<li>Masukkan no rekening <?= $tiket[0]['nama_bank']; ?> yang dituju</li>
 												<li>Masukkan Nominal Jumlah Uang yang akan di transfer</li>
 												<li>Layar ATM akan menampilkan data transaksi anda ,</li>
 												<li>Jika data sudah benar pilih “YA” (OK)</li>
@@ -117,7 +117,7 @@
 										</div>
 									</div>
 								</div>
-								<a href="<?php echo base_url('tiket/konfirmasi/'.$tiket[0]['kd_order'].'/'.$total) ?>" class="btn btn-primary pull-center">Konfirmasi Pembayaran </a>
+								<a href="<?= base_url('tiket/konfirmasi/'.$tiket[0]['kd_order'].'/'.$total) ?>" class="btn btn-primary pull-center">Konfirmasi Pembayaran </a>
 							</div>
 						</div>
 					</div>
@@ -137,7 +137,7 @@
 				</script>
 				<script>
 				// Set the date we're counting down to
-				var countDownDate = new Date("<?php echo $expired1 ?>").getTime();
+				var countDownDate = new Date("<?= $expired1 ?>").getTime();
 				// Update the count down every 1 second
 				var x = setInterval(function() {
 				// Get todays date and time

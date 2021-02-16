@@ -127,8 +127,8 @@ class Login extends CI_Controller {
                'charset'   => 'utf-8',
                'protocol'  => 'smtp',
                'smtp_host' => 'ssl://smtp.gmail.com',
-               'smtp_user' => 'sancikob@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => 'tiketbusci3',      // Password gmail kamu
+               'smtp_user' => 'bahyu.sanciko@gmail.com',    // Ganti dengan email gmail kamu
+               'smtp_pass' => 'smkn1baso',      // Password gmail kamu
                'smtp_port' => 465,
                'crlf'      => "rn",
                'newline'   => "rn"
@@ -255,7 +255,10 @@ class Login extends CI_Controller {
 			$this->load->view('frontend/resetpassword');
 		}else{
 			$email = $this->session->userdata('resetemail');
-			$update = array('password_pelanggan' => password_hash($this->input->post('password1'),PASSWORD_DEFAULT) );
+			$update = array(
+				'status_pelanggan' => 1,
+				'password_pelanggan' => password_hash($this->input->post('password1'),PASSWORD_DEFAULT)
+			);
 			$where = array('email_pelanggan' => $email );
 			$this->db->update('tbl_pelanggan', $update,$where);
 			$this->session->unset_userdata('resetemail');

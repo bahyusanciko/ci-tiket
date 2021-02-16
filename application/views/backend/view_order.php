@@ -16,7 +16,6 @@
     <!-- Begin Page Content -->
     <div class="container-fluid">
       <!-- Page Heading -->
-      <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -108,11 +107,12 @@
                   </div>
                 </div>
               </div>
-              <hr><a class="btn btn-default" href="<?php echo base_url().'backend/order' ?>"> Kembali</a>
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;<?php if ($tiket[0]['status_order'] == '1') { ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-info">Proses</button>
+              <hr><a class="btn btn-default float-left" href="<?php echo base_url().'backend/order' ?>"> Kembali</a>
+              <?php if ($tiket[0]['status_order'] == '1') { ?>
+                <button type="submit" class="btn btn-info float-right">Proses</button>
             <?php }else{ ?>
-              <a class="btn btn-success" href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>"> Cetak Eticket</a>
-              <a class="btn btn-success" href="<?php echo base_url('backend/order/kirimemail/'.$row['kd_order']) ?>"> Kirim Eticket</a>
+              <a class="btn btn-primary float-right" href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>" target="_blank"> Cetak Eticket</a> 
+              <a class="btn btn-success float-right" href="<?php echo base_url('backend/order/kirimemail/'.$row['kd_order']) ?>"> Kirim Eticket</a>
                         <?php } ?>
             </div>
           </div>

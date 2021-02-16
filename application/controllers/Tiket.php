@@ -11,18 +11,15 @@ class Tiket extends CI_Controller {
 	function getsecurity($value=''){
 		$username = $this->session->userdata('username');
 		if (empty($username)) {
-			// $this->session->sess_destroy();
 			redirect('login');
 		}
 	}
 	public function index(){
 		$this->session->unset_userdata(array('jadwal','asal','tanggal'));
-		// print_r($this->session->userdata());
 		$data['title'] = "Cek Jadwal";
 		$data['asal'] = $this->db->query("SELECT * FROM `tbl_tujuan` ORDER BY kota_tujuan ASC ")->result_array();
 		$data['tujuan'] = $this->db->query("SELECT * FROM `tbl_tujuan` group by kota_tujuan ORDER BY kota_tujuan ASC ")->result_array();
 		$data['list'] = $this->db->query("SELECT * FROM `tbl_tujuan` ORDER BY kota_tujuan ASC ")->result_array();
-		// die(print_r($data));
 		$this->load->view('frontend/cektanggal',$data);
 	}
 	public function cektiket($value=''){
@@ -146,42 +143,39 @@ class Tiket extends CI_Controller {
 	}
 	public function cekorder($id=''){
 		$id = $this->input->post('kodetiket');
-		$sqlcek = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_bus on tbl_order.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_bank on tbl_order.kd_bank = tbl_bank.kd_bank WHERE kd_order ='".$id."'")->result_array();
-		if ($sqlcek == '') {
+		$sqlcek = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_bus on tbl_jadwal.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_bank on tbl_order.kd_bank = tbl_bank.kd_bank WHERE kd_order ='$id'")->result_array();
+		if ($sqlcek) {
 		$data['tiket'] = $sqlcek;
-		// die(print_r($data));
+		$data['count'] = count($sqlcek);
 		$this->load->view('frontend/payment',$data);
 		}else{
 			$this->session->set_flashdata('message', 'swal("Kosong", "Tiket Order Tidak Ada", "error");');
     		redirect('tiket/cektiket');
 		}
-		// $this->sendmail($sqlcek);
 	}
 	public function payment($id=''){
 		$this->getsecurity();
-		$sqlcek = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_bank on tbl_order.kd_bank = tbl_bank.kd_bank WHERE kd_order ='".$id."'")->result_array();
+		$sqlcek = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_bus on tbl_jadwal.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_bank on tbl_order.kd_bank = tbl_bank.kd_bank WHERE kd_order ='$id'")->result_array();
 		$data['count'] = count($sqlcek);
 		$data['tiket'] = $sqlcek;
-		// die(print_r($data));
 		$this->load->view('frontend/payment',$data);
 	}
 	public function checkout($value=''){
 		$this->getsecurity();
 		$data['tiket'] = $value;
-		$send['count'] = $this->db->query("SELECT count(kd_order) FROM tbl_order WHERE kd_order ='".$value."'")->row_array();
-		$send['sendmail'] = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan LEFT JOIN tbl_bank on tbl_order.kd_bank = tbl_bank.kd_bank WHERE kd_order ='".$value."'")->row_array();
+		$send['sendmail'] = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan LEFT JOIN tbl_bank on tbl_order.kd_bank = tbl_bank.kd_bank WHERE kd_order ='$value'")->row_array();
+		$send['count'] = count($send['sendmail']);
 		//email
 		$subject = 'XTRANS';
 		$message = $this->load->view('frontend/sendmail',$send, TRUE);
-		// die(print_r($send));
 		$to 	 = $this->session->userdata('email');
         $config = [
                'mailtype'  => 'html',
                'charset'   => 'utf-8',
                'protocol'  => 'smtp',
                'smtp_host' => 'ssl://smtp.gmail.com',
-               'smtp_user' => 'sancikob@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => 'tiketbusci3',      // Password gmail kamu
+               'smtp_user' => 'bahyu.sanciko@gmail.com',    // Ganti dengan email gmail kamu
+               'smtp_pass' => 'smkn1baso',      // Password gmail kamu
                'smtp_port' => 465,
 		   ];
         $this->load->library('email', $config);
@@ -198,7 +192,6 @@ class Tiket extends CI_Controller {
         }
 	}
 	public function caritiket(){
-		// die(print_r($POST));
 		$id = $this->input->post('kodetiket');
 		$sqlcek = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_bus on tbl_order.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal WHERE kd_order ='".$id."'")->result_array();
 		if ($sqlcek == NULL) {
@@ -211,18 +204,15 @@ class Tiket extends CI_Controller {
 	}
 	public function konfirmasi($value='',$harga=''){
 		$this->getsecurity();
-		// die(print_r($value));
 		$data['id'] = $value;
 		$data['total'] = $harga;
 		$this->load->view('frontend/konfirmasi', $data);
 	}
 	public function insertkonfirmasi($value=''){
 		$this->getsecurity();
-		// die(print_r($_POST));
 		$config['upload_path'] = './assets/frontend/upload/payment';
-		$config['allowed_types'] = 'gif|jpg|png';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$this->load->library('upload', $config);
-		
 		if ( ! $this->upload->do_upload('userfile')){
 			$error = array('error' => $this->upload->display_errors());
 			$this->session->set_flashdata('message', 'swal("Gagal", "Cek Kembali Konfirmasi Anda", "error");');
@@ -250,7 +240,6 @@ class Tiket extends CI_Controller {
 		$this->getsecurity();
 		$order = $id;
 		$data['cetak'] = $this->db->query("SELECT * FROM tbl_order LEFT JOIN tbl_bus on tbl_order.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_jadwal on tbl_order.kd_jadwal = tbl_jadwal.kd_jadwal LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan WHERE kd_order ='".$id."'")->result_array();
-
 		$tiket = $this->db->query("SELECT email_pelanggan FROM tbl_pelanggan WHERE kd_pelanggan ='".$data['cetak'][0]['kd_pelanggan']."'")->row_array();
 		die(print_r($tiket));
 	}
