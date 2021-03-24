@@ -5,7 +5,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url('backend/home') ?>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= base_url('backend/home') ?>">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-bus"></i>
         </div>
@@ -17,32 +17,32 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo base_url() ?>backend/home">
+        <a class="nav-link" href="<?= base_url() ?>backend/home">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard </span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/order">
+        <a class="nav-link" href="<?= base_url() ?>backend/order">
           <i class="fas fa-list-alt"></i>
           <span>List Order</span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/tiket">
+        <a class="nav-link" href="<?= base_url() ?>backend/tiket">
           <i class="fas fa-qrcode"></i>
           <span>List Tiket</span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/konfirmasi">
+        <a class="nav-link" href="<?= base_url() ?>backend/konfirmasi">
           <i class="fa fa-mouse-pointer"></i>
           <span>List Konfirmasi</span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/jadwal">
+        <a class="nav-link" href="<?= base_url() ?>backend/jadwal">
           <i class="fas fa fa-clipboard-list"></i>
           <span>Jadwal</span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/rute">
+        <a class="nav-link" href="<?= base_url() ?>backend/rute">
           <i class="fas fa fa-compass"></i>
           <span>Tujuan</span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/bus">
+        <a class="nav-link" href="<?= base_url() ?>backend/bus">
           <i class="fas fa fa-bus"></i>
           <span>Bus</span></a>
         <?php if ($this->session->userdata('level') == '1') { ?>
-           <a class="nav-link" href="<?php echo base_url() ?>backend/bank">
+           <a class="nav-link" href="<?= base_url() ?>backend/bank">
           <i class="fas fa fa-link"></i>
           <span>Link Bank</span></a>
-        <a class="nav-link" href="<?php echo base_url() ?>backend/laporan">
+        <a class="nav-link" href="<?= base_url() ?>backend/laporan">
           <i class="fa fa fa-file"></i>
           <span>Laporan</span></a>
              <!-- Nav Item - Pages Collapse Menu -->
@@ -53,8 +53,8 @@
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?php echo base_url('backend/pelanggan') ?>">List Pelanggan</a>
-                <a class="collapse-item" href="<?php echo base_url() ?>backend/admin">List Admin</a>
+                <a class="collapse-item" href="<?= base_url('backend/pelanggan') ?>">List Pelanggan</a>
+                <a class="collapse-item" href="<?= base_url() ?>backend/admin">List Admin</a>
               </div>
             </div>
           </li>
@@ -86,7 +86,7 @@
           </button>
 
           <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?php echo base_url('backend/order/vieworder') ?>" method="GET">
+          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" action="<?= base_url('backend/order/vieworder') ?>" method="GET">
             <div class="input-group">
               <input type="text" name="order" class="form-control bg-light border-0 small" placeholder="Cari Order" aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
@@ -173,8 +173,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $this->session->userdata('nama_admin'); ?></span>
-                <img class="img-profile rounded-circle" src="<?php echo base_url($this->session->userdata('img_admin')) ?>">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $this->session->userdata('nama_admin'); ?></span>
+                <img class="img-profile rounded-circle" src="<?= base_url($this->session->userdata('img_admin')) ?>">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

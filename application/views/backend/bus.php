@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -40,17 +40,17 @@
               <tbody>
                 <?php $i = 1 ; foreach ($bus as $row ) { ?>
                 <tr>
-                  <td><?php echo $i++; ?></td>
-                  <td><?php echo strtoupper($row['kd_bus']); ?></td>
-                  <td><?php echo strtoupper($row['nama_bus']); ?></td>
-                  <td><?php echo strtoupper($row['plat_bus']); ?></td>
-                  <td><?php echo $row['kapasitas_bus'] ?></td>
+                  <td><?= $i++; ?></td>
+                  <td><?= strtoupper($row['kd_bus']); ?></td>
+                  <td><?= strtoupper($row['nama_bus']); ?></td>
+                  <td><?= strtoupper($row['plat_bus']); ?></td>
+                  <td><?= $row['kapasitas_bus'] ?></td>
                   <?php if ($row['status_bus'] == '1') { ?>
                     <td class="btn-success"> Online</td> 
                     <?php } else { ?>
                     <td class="btn-danger">Offline</td>
                   <?php } ?>
-                  <td align="center"><a href="<?php echo base_url('backend/bus/viewbus/'.$row['kd_bus'])?>" class="btn btn btn-primary">View</a></a>
+                  <td align="center"><a href="<?= base_url('backend/bus/viewbus/'.$row['kd_bus'])?>" class="btn btn btn-primary">View</a></a>
                 </td>
               </tr>
               <?php } ?>
@@ -78,7 +78,7 @@
     </button>
   </div>
   <div class="modal-body">
-    <form action="<?php echo base_url()?>backend/bus/tambahbus" method="post">
+    <form action="<?= base_url()?>backend/bus/tambahbus" method="post">
       <div class="form-group">
         <label for="platbus" class="">Nama BUS</label>
         <input type="text" class="form-control" name="nama_bus" placeholder="Plat Bus">

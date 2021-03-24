@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -19,44 +19,44 @@
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">KODE Order [<?php echo $tiket[0]['kd_order']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">KODE Order [<?= $tiket[0]['kd_order']; ?>]  </h6>
         </div>
         <div class="card-body">
-          <form action="<?php echo base_url().'backend/order/inserttiket' ?>" method="post" enctype="multipart/form-data">
+          <form action="<?= base_url().'backend/order/inserttiket' ?>" method="post" enctype="multipart/form-data">
              
             <div class="card-body">
               <div class="row">
                 <?php foreach ($tiket as $row ) { ?>
-                <input type="hidden" class="form-control" name="kd_pelanggan" value="<?php echo $row['kd_pelanggan'] ?>" readonly>
-                <input type="hidden" class="form-control" name="kd_order" value="<?php echo $row['kd_order'] ?>" readonly>
-                <input type="hidden" class="form-control" name="asal_beli" value="<?php echo $row['asal_order'] ?>" readonly>
-                <input type="hidden" class="form-control" name="kd_tiket[]" value="<?php echo $row['kd_tiket'] ?>" readonly>
+                <input type="hidden" class="form-control" name="kd_pelanggan" value="<?= $row['kd_pelanggan'] ?>" readonly>
+                <input type="hidden" class="form-control" name="kd_order" value="<?= $row['kd_order'] ?>" readonly>
+                <input type="hidden" class="form-control" name="asal_beli" value="<?= $row['asal_order'] ?>" readonly>
+                <input type="hidden" class="form-control" name="kd_tiket[]" value="<?= $row['kd_tiket'] ?>" readonly>
                 <div class="col-sm-6">
-                  <label >Kode Tiket <b><?php echo $row['kd_tiket'] ?></b></label>
-                  <p>Nama Pemesan <b><?php echo $row['nama_order']; ?></b></p>
+                  <label >Kode Tiket <b><?= $row['kd_tiket'] ?></b></label>
+                  <p>Nama Pemesan <b><?= $row['nama_order']; ?></b></p>
                   <hr>
                   <div class="row form-group">
                     <label for="nama" class="col-sm-4 control-label">Kode Jadwal</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="kd_jadwal" value="<?php echo $row['kd_jadwal'] ?>" readonly>
+                      <input type="text" class="form-control" name="kd_jadwal" value="<?= $row['kd_jadwal'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="nama" class="col-sm-4 control-label">Nama Penumpang</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="nama[]" value="<?php echo $row['nama_kursi_order'] ?>" readonly>
+                      <input type="text" class="form-control" name="nama[]" value="<?= $row['nama_kursi_order'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Nomor Kursi</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="no_kursi[]" value="<?php echo $row['no_kursi_order'] ?>" readonly>
+                      <input type="text" class="form-control" name="no_kursi[]" value="<?= $row['no_kursi_order'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Umur Penumpang</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="umur_kursi[]>" value="<?php echo $row['umur_kursi_order'] ?> Tahun" readonly>
+                      <input type="text" class="form-control" name="umur_kursi[]>" value="<?= $row['umur_kursi_order'] ?> Tahun" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
@@ -68,7 +68,7 @@
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Batas Pembayaran</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="tgl_beli" value="<?php echo hari_indo(date('N',strtotime($row['expired_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['expired_order'].''))).', '.date('H:i',strtotime($row['expired_order']));  ?>" readonly>
+                      <input type="text" class="form-control" name="tgl_beli" value="<?= hari_indo(date('N',strtotime($row['expired_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['expired_order'].''))).', '.date('H:i',strtotime($row['expired_order']));  ?>" readonly>
                     </div>
                   </div>
                 </div>
@@ -77,7 +77,7 @@
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Cek Konfirmasi Pembayaran</label>
                     <div class="col-sm-8">
-                      <a href="<?php echo base_url('backend/konfirmasi/viewkonfirmasi/'.$tiket[0]['kd_order']) ?>" class="btn btn-secondary">Lihat</a>
+                      <a href="<?= base_url('backend/konfirmasi/viewkonfirmasi/'.$tiket[0]['kd_order']) ?>" class="btn btn-secondary">Lihat</a>
                     </div>
                   </div>
                 </div>
@@ -107,12 +107,12 @@
                   </div>
                 </div>
               </div>
-              <hr><a class="btn btn-default float-left" href="<?php echo base_url().'backend/order' ?>"> Kembali</a>
+              <hr><a class="btn btn-default float-left" href="<?= base_url().'backend/order' ?>"> Kembali</a>
               <?php if ($tiket[0]['status_order'] == '1') { ?>
                 <button type="submit" class="btn btn-info float-right">Proses</button>
             <?php }else{ ?>
-              <a class="btn btn-primary float-right" href="<?php echo base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>" target="_blank"> Cetak Eticket</a> 
-              <a class="btn btn-success float-right" href="<?php echo base_url('backend/order/kirimemail/'.$row['kd_order']) ?>"> Kirim Eticket</a>
+              <a class="btn btn-primary float-right" href="<?= base_url('assets/backend/upload/etiket/'.$row['kd_order'].'.pdf') ?>" target="_blank"> Cetak Eticket</a> 
+              <a class="btn btn-success float-right" href="<?= base_url('backend/order/kirimemail/'.$row['kd_order']) ?>"> Kirim Eticket</a>
                         <?php } ?>
             </div>
           </div>

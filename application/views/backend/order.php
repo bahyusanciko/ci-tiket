@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -39,20 +39,20 @@
               <tbody>
                 <?php $i=1;foreach ($order as $row) { ?>
                   <tr>
-                    <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['kd_order']; ?></td>
-                    <td><?php echo $row['kd_jadwal']; ?></td>
-                    <td><?php echo hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].'')));?></td>
-                    <td><?php echo $row['nama_order']; ?></td>
-                    <td><?php echo $row['tgl_beli_order']; ?></td>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row['kd_order']; ?></td>
+                    <td><?= $row['kd_jadwal']; ?></td>
+                    <td><?= hari_indo(date('N',strtotime($row['tgl_berangkat_order']))).', '.tanggal_indo(date('Y-m-d',strtotime(''.$row['tgl_berangkat_order'].'')));?></td>
+                    <td><?= $row['nama_order']; ?></td>
+                    <td><?= $row['tgl_beli_order']; ?></td>
                     <?php $sqlcek = $this->db->query("SELECT * FROM tbl_order WHERE kd_order LIKE '".$row['kd_order']."'")->result_array(); ?>
-                    <td><?php echo count($sqlcek); ?></td>
+                    <td><?= count($sqlcek); ?></td>
                     <?php if ($row['status_order'] == '1') { ?>
                           <td class="btn-danger"> Belum Bayar</td> 
                           <?php } elseif($row['status_order'] == '2') { ?>
                           <td class="btn-success"> Sudah Bayar</td>
                         <?php } ?>
-                    <td><a href="<?php echo base_url('backend/order/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-primary">View</a></td>
+                    <td><a href="<?= base_url('backend/order/vieworder/'.$row['kd_order']) ?>" class="btn btn btn-primary">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -36,12 +36,12 @@
               <tbody>
                 <?php $i=1;foreach ($tiket as $row) { ?>
                   <tr>
-                    <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['kd_tiket']; ?></td>
-                    <td><?php echo $row['nama_tiket']; ?></td>
-                    <td><?php echo $row['kursi_tiket']; ?></td>
-                    <td><?php echo strtoupper($row['asal_beli_tiket']);  ?></td>
-                    <td><a href="<?php echo base_url('backend/tiket/viewtiket/'.$row['kd_tiket']) ?>" class="btn btn btn-primary">View</a></td>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row['kd_tiket']; ?></td>
+                    <td><?= $row['nama_tiket']; ?></td>
+                    <td><?= $row['kursi_tiket']; ?></td>
+                    <td><?= strtoupper($row['asal_beli_tiket']);  ?></td>
+                    <td><a href="<?= base_url('backend/tiket/viewtiket/'.$row['kd_tiket']) ?>" class="btn btn btn-primary">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

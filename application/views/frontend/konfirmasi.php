@@ -17,7 +17,7 @@
 		<title>Dapat Tiket</title>
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 		<!--CSS-->
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/frontend/datepicker/dcalendar.picker.css">
+		<link rel="stylesheet" type="text/css" href="<?= base_url() ?>assets/frontend/datepicker/dcalendar.picker.css">
 		<?php $this->load->view('frontend/include/base_css'); ?>
 	</head>
 	<body>
@@ -34,10 +34,10 @@
 					    Konfirmasi Pembayaran
 					  </div>
 					  <div class="card-body">
-					    <form action="<?php echo base_url() ?>tiket/insertkonfirmasi" method="post" enctype="multipart/form-data">
+					    <form action="<?= base_url() ?>tiket/insertkonfirmasi" method="post" enctype="multipart/form-data">
 									<div class="form-group">
 										<label for="exampleInputEmail1">Kode Order</label>
-										<input type="text" id="" class="form-control" id="" name="kd_order" value="<?php echo $id ?>" placeholder="Kode Tiket">
+										<input type="text" id="" class="form-control" id="" name="kd_order" value="<?= $id ?>" placeholder="Kode Tiket">
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail1">BANK Kamu</label>
@@ -59,7 +59,7 @@
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail1">Jumlah Pembayaran</label>
-										<input type="number" class="form-control" name="total" value="<?php echo $total ?>" placeholder="Total Harga" readonly>
+										<input type="number" class="form-control" name="total" value="<?= $total ?>" placeholder="Total Harga" readonly>
 									</div>
 									<div class="form-group">
 										<label for="exampleInputEmail1">Upload Poto Transaksi</label>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -38,14 +38,14 @@
               <tbody>
                 <?php $i=1;foreach ($konfirmasi as $row) { ?>
                   <tr>
-                    <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['kd_konfirmasi']; ?></td>
-                    <td><?php echo $row['kd_order']; ?></td>
-                    <td><?php echo $row['nama_konfirmasi']; ?></td>
-                    <td><?php echo $row['nama_bank_konfirmasi']; ?></td>
-                    <td><?php echo $row['norek_konfirmasi']; ?></td>
-                    <td><?php echo $row['total_konfirmasi']; ?></td>
-                    <td><a href="<?php echo base_url('backend/konfirmasi/viewkonfirmasi/'.$row['kd_order']) ?>" class="btn btn btn-primary">View</a></td>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row['kd_konfirmasi']; ?></td>
+                    <td><?= $row['kd_order']; ?></td>
+                    <td><?= $row['nama_konfirmasi']; ?></td>
+                    <td><?= $row['nama_bank_konfirmasi']; ?></td>
+                    <td><?= $row['norek_konfirmasi']; ?></td>
+                    <td><?= $row['total_konfirmasi']; ?></td>
+                    <td><a href="<?= base_url('backend/konfirmasi/viewkonfirmasi/'.$row['kd_order']) ?>" class="btn btn btn-primary">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -38,11 +38,11 @@
               <tbody>
                 <?php $i = 1 ; foreach ($tujuan as $row ) { ?>
                 <tr>
-                  <td><?php echo $i++; ?></td>
-                  <td><?php echo $row['kd_tujuan']; ?></td>
-                  <td><?php echo strtoupper($row['kota_tujuan']); ?></td>
-                  <td><?php echo  substr($row['terminal_tujuan'], 0, 15); ?></td>
-                  <td align="center"><a href="<?php echo base_url('backend/rute/viewrute/'.$row['kd_tujuan']) ?>" class="btn btn-primary">VIEW</a></td>
+                  <td><?= $i++; ?></td>
+                  <td><?= $row['kd_tujuan']; ?></td>
+                  <td><?= strtoupper($row['kota_tujuan']); ?></td>
+                  <td><?=  substr($row['terminal_tujuan'], 0, 15); ?></td>
+                  <td align="center"><a href="<?= base_url('backend/rute/viewrute/'.$row['kd_tujuan']) ?>" class="btn btn-primary">VIEW</a></td>
                 </tr>
                 <?php } ?>
               </tbody>
@@ -77,7 +77,7 @@
       </button>
     </div>
     <div class="modal-body">
-      <form action="<?php echo base_url() ?>backend/home/tambahtujuan" method="post" >
+      <form action="<?= base_url() ?>backend/home/tambahtujuan" method="post" >
         <div class="form-group">
           <div class="form-label-group">
             <input type="text" id="tujuan" name="tujuan" class="form-control" placeholder="Tujuan" required="required" autofocus="autofocus">

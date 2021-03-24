@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/frontend/timepicker') ?>/css/bootstrap-material-datetimepicker.css" />
+    <link rel="stylesheet" href="<?= base_url('assets/frontend/timepicker') ?>/css/bootstrap-material-datetimepicker.css" />
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
   <body id="page-top">
@@ -26,13 +26,13 @@
           <div class="card-body">
             <div class="row">
               <div class="col-sm-12">
-                <form action="<?php echo base_url()?>backend/jadwal/tambahjadwal" method="post">
+                <form action="<?= base_url()?>backend/jadwal/tambahjadwal" method="post">
                   <div class="form-group">
                     <label class="">Asal</label>
                     <select class="form-control" name="asal" required>
                       <option value="" selected disabled="">-Pilih Asal-</option>
                       <?php foreach ($tujuan as $row ) {?>
-                      <option value="<?php echo $row['kd_tujuan'] ?>" ><?php echo strtoupper($row['kota_tujuan'])." - ".$row['terminal_tujuan']; ?></option>
+                      <option value="<?= $row['kd_tujuan'] ?>" ><?= strtoupper($row['kota_tujuan'])." - ".$row['terminal_tujuan']; ?></option>
                       <?php } ?>
                     </select>
                   </div>
@@ -41,7 +41,7 @@
                     <select class="form-control" name="tujuan" required>
                       <option value="" selected disabled="">-Pilih Tujuan-</option>
                       <?php foreach ($tujuan as $row ) {?>
-                      <option value="<?php echo $row['kd_tujuan'] ?>" ><?php echo strtoupper($row['kota_tujuan'])." - ".$row['terminal_tujuan']; ?></option>
+                      <option value="<?= $row['kd_tujuan'] ?>" ><?= strtoupper($row['kota_tujuan'])." - ".$row['terminal_tujuan']; ?></option>
                       <?php } ?>
                     </select>
                   </div>
@@ -50,7 +50,7 @@
                     <select class="form-control" name="bus">
                       <option value="" selected disabled="">-Pilih Bus-</option>
                       <?php foreach ($bus as $row ) {?>
-                      <option value="<?php echo $row['kd_bus'] ?>" ><?php echo strtoupper($row['nama_bus']); ?> -<?php if ($row['status_bus'] == '1') { ?>
+                      <option value="<?= $row['kd_bus'] ?>" ><?= strtoupper($row['nama_bus']); ?> -<?php if ($row['status_bus'] == '1') { ?>
                         Online
                         <?php } else { ?>
                         Offline
@@ -69,7 +69,7 @@
                   <div class="form-group">
                     <label  class="">Harga Jadwal</label>
                     <input type="number" class="form-control" name="harga" required="" placeholder="Harga">
-                    <?php echo form_error('name'),'<small class="text-danger pl-3">','</small>'; ?>
+                    <?= form_error('name'),'<small class="text-danger pl-3">','</small>'; ?>
                   </div>
                 </div>
               </div>
@@ -91,7 +91,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/ripples.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.10/js/material.min.js"></script>
         <script type="text/javascript" src="http://momentjs.com/downloads/moment-with-locales.min.js"></script>
-        <script type="text/javascript" src="<?php echo base_url('assets/frontend/timepicker') ?>/js/bootstrap-material-datetimepicker.js"></script>
+        <script type="text/javascript" src="<?= base_url('assets/frontend/timepicker') ?>/js/bootstrap-material-datetimepicker.js"></script>
         <script type="text/javascript">
           $(document).ready(function()
           {

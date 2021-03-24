@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -19,7 +19,7 @@
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-           <a href="<?php echo base_url('backend/admin/daftar') ?>" class="btn btn-primary pull-right" >
+           <a href="<?= base_url('backend/admin/daftar') ?>" class="btn btn-primary pull-right" >
           Tambah Akun Akses
           </a>
         </div>
@@ -40,18 +40,18 @@
               <tbody>
                 <?php $i=1;foreach ($admin as $row) { ?>
                   <tr>
-                    <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['kd_admin']; ?></td>
-                    <td><?php echo $row['nama_admin']; ?></td>
-                    <td><?php echo $row['username_admin']; ?></td>
-                    <td><?php echo $row['email_admin']; ?></td>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row['kd_admin']; ?></td>
+                    <td><?= $row['nama_admin']; ?></td>
+                    <td><?= $row['username_admin']; ?></td>
+                    <td><?= $row['email_admin']; ?></td>
                     <td><?php if ($row['level_admin'] == '1') { ?>
-                      <p class="btn btn-primary">OWNER</p>
+                      OWNER
                     <?php }else{ ?>
-                      <p class="btn btn-primary">Admin</p>
+                      ADMIN
                     <?php } ?>
                     </td>
-                    <td><a href="<?php echo base_url('backend/home/viewadmin/'.$row['kd_admin']) ?>" class="btn btn btn-primary">View</a></td>
+                    <td><a href="<?= base_url('backend/home/viewadmin/'.$row['kd_admin']) ?>" class="btn btn btn-primary">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

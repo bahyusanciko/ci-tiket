@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -38,14 +38,14 @@
               <tbody>
                 <?php $i=1;foreach ($pelanggan as $row) { ?>
                   <tr>
-                    <td><?php echo $i++; ?></td>
-                    <td><?php echo $row['kd_pelanggan']; ?></td>
-                    <td><?php echo $row['no_ktp_pelanggan']; ?></td>
-                    <td><?php echo $row['nama_pelanggan']; ?></td>
-                    <td><?php echo $row['alamat_pelanggan']; ?></td>
-                    <td><?php echo $row['email_pelanggan']; ?></td>
-                    <td><?php echo $row['telpon_pelanggan']; ?></td>
-                    <td><a href="<?php echo base_url('backend/home/viewpelanggan/'.$row['kd_pelanggan']) ?>" class="btn btn btn-primary">View</a></td>
+                    <td><?= $i++; ?></td>
+                    <td><?= $row['kd_pelanggan']; ?></td>
+                    <td><?= $row['no_ktp_pelanggan']; ?></td>
+                    <td><?= $row['nama_pelanggan']; ?></td>
+                    <td><?= $row['alamat_pelanggan']; ?></td>
+                    <td><?= $row['email_pelanggan']; ?></td>
+                    <td><?= $row['telpon_pelanggan']; ?></td>
+                    <td><a href="<?= base_url('backend/home/viewpelanggan/'.$row['kd_pelanggan']) ?>" class="btn btn btn-primary">View</a></td>
                   </tr>
                 <?php } ?>
             </tbody>

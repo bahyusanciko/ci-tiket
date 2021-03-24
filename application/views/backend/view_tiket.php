@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <!-- css -->
     <?php $this->load->view('backend/include/base_css'); ?>
   </head>
@@ -19,7 +19,7 @@
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Kode Tiket [<?php echo $tiket['kd_tiket']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Kode Tiket [<?= $tiket['kd_tiket']; ?>]  </h6>
         </div>
         <div class="card-body">
           <form action="" method="post" enctype="multipart/form-data">
@@ -27,10 +27,10 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Kode Order     : <b><?php echo $tiket['kd_order']; ?></b></p>
-                  <p>Nama Penumpang : <b><?php echo $tiket['nama_tiket']; ?></b></p>
-                  <p>Umur Penumpang : <b><?php echo $tiket['umur_tiket']; ?></b></p>
-                  <p>Nomor Kursi    : <b><?php echo $tiket['kursi_tiket'] ?></b></p>
+                  <p>Kode Order     : <b><?= $tiket['kd_order']; ?></b></p>
+                  <p>Nama Penumpang : <b><?= $tiket['nama_tiket']; ?></b></p>
+                  <p>Umur Penumpang : <b><?= $tiket['umur_tiket']; ?></b></p>
+                  <p>Nomor Kursi    : <b><?= $tiket['kursi_tiket'] ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>

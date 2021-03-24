@@ -9,6 +9,7 @@ class Konfirmasi extends CI_Controller {
 		$this->getsecurity();
 		date_default_timezone_set("Asia/Jakarta");
 	}
+
 	function getsecurity($value=''){
 		$username = $this->session->userdata('username_admin');
 		if (empty($username)) {
@@ -16,12 +17,13 @@ class Konfirmasi extends CI_Controller {
 			redirect('backend/login');
 		}
 	}
+
 	public function index(){
-	$data['title'] = "List Konfirmasi";
-	$data['konfirmasi'] = $this->db->query("SELECT * FROM tbl_konfirmasi group by kd_konfirmasi")->result_array();
-// die(print_r($data));
-	$this->load->view('backend/konfirmasi', $data);	
+		$data['title'] = "List Konfirmasi";
+		$data['konfirmasi'] = $this->db->query("SELECT * FROM tbl_konfirmasi group by kd_konfirmasi")->result_array();
+		$this->load->view('backend/konfirmasi', $data);	
 	}
+
 	public function viewkonfirmasi($id=''){
 	 $sqlcek = $this->db->query("SELECT * FROM tbl_konfirmasi WHERE kd_order ='".$id."'")->result_array();
 	 $data['title'] = "View Konfirmasi";
@@ -30,7 +32,6 @@ class Konfirmasi extends CI_Controller {
 		redirect('backend/order/vieworder/'.$id);
 	 }else{		
 		$data['konfirmasi'] = $sqlcek;
-	 	// die(print_r($sqlcek));
 	 	$this->load->view('backend/view_konfirmasi',$data);
 		}
 	}

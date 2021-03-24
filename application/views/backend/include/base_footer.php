@@ -1,7 +1,7 @@
 <footer class="sticky-footer bg-white">
 	<div class="container my-auto">
 		<div class="copyright text-center my-auto">
-			<span>Copyright &copy; Your Website 2019</span>
+			<span>Copyright &copy; Bahyu Sanciko <?= date('Y') ?></span>
 		</div>
 	</div>
 </footer>
@@ -27,15 +27,14 @@
 			<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary" href="<?php echo base_url('backend/login/logout') ?>">Logout</a>
+				<a class="btn btn-primary" href="<?= base_url('backend/login/logout') ?>">Logout</a>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="preloader">
 	<div class="loading">
-		<img src="<?php echo base_url('assets/frontend/img/preloader.gif') ?>" width="80">
+		<img src="<?= base_url('assets/frontend/img/preloader.gif') ?>" width="80">
 		<p>Harap Tunggu</p>
 	</div>
 </div>
-<?php echo "<script>".$this->session->flashdata('message')."</script>"?>

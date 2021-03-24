@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title><?php echo $title ?></title>
+        <title><?= $title ?></title>
         <!-- css -->
         <?php $this->load->view('backend/include/base_css'); ?>
     </head>
@@ -52,7 +52,7 @@
                 <div class="modal-header">
                     <h3 class="modal-title" id="myModalLabel">Pilih Tanggal</h3>
                 </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan/laportanggal') ?>" target="_blank">
+                <form class="form-horizontal" method="post" action="<?= base_url('backend/laporan/laportanggal') ?>" target="_blank">
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="control-label col-xs-3" > Dari Tanggal</label>
@@ -92,7 +92,7 @@
                 <div class="modal-header">
                     <h3 class="modal-title" id="myModalLabel">Pilih Bulan</h3>
                 </div>
-                <form class="form-horizontal" method="post" action="<?php echo base_url('backend/laporan/laporbulan') ?>" target="_blank">
+                <form class="form-horizontal" method="post" action="<?= base_url('backend/laporan/laporbulan') ?>" target="_blank">
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="control-label col-xs-3" >Bulan</label>
@@ -100,7 +100,7 @@
                                 <select name="bln" class="selectpicker show-tick form-control" data-live-search="true" title="Pilih Bulan" data-width="80%" required/>
                                     <option value='' selected disabled>Pilih Bulan</option>
                                 <?php foreach ($bulan as $row) { ?>
-                                    <option value="<?php echo $row['bulan'] ?>"><?php echo $row['bulan'] ?></option>
+                                    <option value="<?= $row['bulan'] ?>"><?= $row['bulan'] ?></option>
                                 <?php } ?>
                                                                 </select>
 

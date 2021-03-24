@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title><?php echo $title ?></title>
+  <title><?= $title ?></title>
 
   <!-- css -->
   <?php $this->load->view('backend/include/base_css'); ?>
@@ -34,8 +34,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href="<?php echo base_url('backend/order') ?>">Pending Order</a></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $order[0]['count(kd_order)']; ?></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><a href="<?= base_url('backend/order') ?>">Pending Order</a></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $order[0]['count(kd_order)']; ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -51,8 +51,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?php echo base_url('backend/tiket') ?>">Total Tiket terrjual</a></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $tiket[0]['count(kd_tiket)']; ?></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"><a href="<?= base_url('backend/tiket') ?>">Total Tiket terrjual</a></div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $tiket[0]['count(kd_tiket)']; ?></div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-qrcode fa-2x text-gray-300"></i>
@@ -68,10 +68,10 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="<?php echo base_url('backend/konfirmasi') ?>">List Konfirmasi</a></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"><a href="<?= base_url('backend/konfirmasi') ?>">List Konfirmasi</a></div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $konfirmasi[0]['count(kd_konfirmasi)']; ?></div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $konfirmasi[0]['count(kd_konfirmasi)']; ?></div>
                         </div>
                         <div class="col">
                           

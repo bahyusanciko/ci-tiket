@@ -16,7 +16,6 @@ class Bus extends CI_Controller {
 	public function viewbus($id=''){
 		$data['title'] = "View Bus";
 		$data['bus'] = $this->db->query("SELECT * FROM tbl_bus WHERE kd_bus = '".$id."'")->row_array();
-		// die(print_r($data));
 		$this->load->view('backend/view_bus', $data);
 	}
 	public function tambahbus(){
@@ -28,7 +27,6 @@ class Bus extends CI_Controller {
 			'kapasitas_bus'		 => $this->input->post('seat'),
 			'status_bus'			=> '1'
 			 );
-		// die(print_r($data));
 		$this->db->insert('tbl_bus', $data);
 		$this->session->set_flashdata('message', 'swal("Berhasil", "Data Bus Di Simpan", "success");');
 		redirect('backend/bus');

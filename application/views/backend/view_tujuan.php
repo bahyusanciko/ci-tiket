@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -108,14 +108,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Kode Tujuan [<?php echo $rute['kd_tujuan']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Kode Tujuan [<?= $rute['kd_tujuan']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Kota Tujuan     : <b> <?php echo strtoupper($rute['kota_tujuan']) ?></b></p>
-                  <p>Tujuan  : <b><?php echo $rute['terminal_tujuan']; ?></b></p>
+                  <p>Kota Tujuan     : <b> <?= strtoupper($rute['kota_tujuan']) ?></b></p>
+                  <p>Tujuan  : <b><?= $rute['terminal_tujuan']; ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>

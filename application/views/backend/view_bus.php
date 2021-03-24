@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -108,22 +108,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Kode Bus [<?php echo $bus['kd_bus']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Kode Bus [<?= $bus['kd_bus']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>Nama BUS : <b> <?php echo $bus['nama_bus']?>]</b></p>
-                  <p>Plat Bus: <b><?php echo strtoupper($bus['plat_bus']) ?></b></p>
-                  <p>Kapasitas Kursi : <b><?php echo $bus['kapasitas_bus']; ?> Kursi</b></p>
-                  <p>Status Bus    : <b><?php echo $bus['status_bus'] ?></td>
+                  <p>Nama BUS : <b> <?= $bus['nama_bus']?>]</b></p>
+                  <p>Plat Bus: <b><?= strtoupper($bus['plat_bus']) ?></b></p>
+                  <p>Kapasitas Kursi : <b><?= $bus['kapasitas_bus']; ?> Kursi</b></p>
+                  <p>Status Bus    : <b><?= $bus['status_bus'] ?></td>
                   <?php if ($bus['status_bus'] == '1') { ?>
                     <td class="btn-success"> Online</td> 
                     <?php } else { ?>
                     <td class="btn-danger">Offline</td>
                   <?php } ?></b></p>
-                  <p>Keterengan : <b><?php echo $bus['desc_bus'] ?></b></p>
+                  <p>Keterengan : <b><?= $bus['desc_bus'] ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>

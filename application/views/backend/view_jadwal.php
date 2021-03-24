@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -108,18 +108,18 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Kode Jadwal [<?php echo $jadwal['kd_jadwal']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">Kode Jadwal [<?= $jadwal['kd_jadwal']; ?>]  </h6>
         </div>
         <div class="card-body">             
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-6">
-                  <p>BUS     : <b> <?php echo $jadwal['kd_bus']." [".$jadwal['nama_bus'].'-'.$jadwal['plat_bus'] ?>]</b></p>
-                  <p>Asal :  <b><?php echo strtoupper($asal['kota_tujuan'])." - ".$asal['terminal_tujuan']; ?></b></p>
-                  <p>Tujuan  : <b><?php echo strtoupper($jadwal['kota_tujuan'])." - ".$jadwal['terminal_tujuan']; ?></b></p>
-                  <p>Jam Berangkat    : <b><?php echo date('H:i',strtotime($jadwal['jam_berangkat_jadwal'])) ?></b></p>
-                  <p>Jam Tiba : <b><?php echo date('H:i',strtotime($jadwal['jam_tiba_jadwal'])) ?></b></p>
-                  <p>Harga Jadwal : <b>Rp <?php echo $jadwal['harga_jadwal']; ?></b></p>
+                  <p>BUS     : <b> <?= $jadwal['kd_bus']." [".$jadwal['nama_bus'].'-'.$jadwal['plat_bus'] ?>]</b></p>
+                  <p>Asal :  <b><?= strtoupper($asal['kota_tujuan'])." - ".$asal['terminal_tujuan']; ?></b></p>
+                  <p>Tujuan  : <b><?= strtoupper($jadwal['kota_tujuan'])." - ".$jadwal['terminal_tujuan']; ?></b></p>
+                  <p>Jam Berangkat    : <b><?= date('H:i',strtotime($jadwal['jam_berangkat_jadwal'])) ?></b></p>
+                  <p>Jam Tiba : <b><?= date('H:i',strtotime($jadwal['jam_tiba_jadwal'])) ?></b></p>
+                  <p>Harga Jadwal : <b>Rp <?= $jadwal['harga_jadwal']; ?></b></p>
                 </div>
                 <div class="col-sm-6">
                 </div>

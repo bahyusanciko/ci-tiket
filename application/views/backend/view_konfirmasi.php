@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title><?php echo $title ?></title>
+    <title><?= $title ?></title>
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -108,7 +108,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
       <!-- Basic Card Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">KODE Order [<?php echo $konfirmasi[0]['kd_order']; ?>]  </h6>
+          <h6 class="m-0 font-weight-bold text-primary">KODE Order [<?= $konfirmasi[0]['kd_order']; ?>]  </h6>
         </div>
         <div class="card-body">
           <form action="" method="post" enctype="multipart/form-data">
@@ -120,19 +120,19 @@ body {font-family: Arial, Helvetica, sans-serif;}
                   <div class="row form-group">
                     <label for="nama" class="col-sm-4 control-label">Kode konfirmasi</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="kd_konfirmasi" value="<?php echo $row['kd_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="kd_konfirmasi" value="<?= $row['kd_konfirmasi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="nama" class="col-sm-4 control-label">Nama Bank</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="nama" value="<?php echo $row['nama_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="nama" value="<?= $row['nama_konfirmasi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Nama Pengirim</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="a/n" value="<?php echo $row['nama_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="a/n" value="<?= $row['nama_konfirmasi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
@@ -144,13 +144,13 @@ body {font-family: Arial, Helvetica, sans-serif;}
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Total Pembayaran</label>
                     <div class="col-sm-8">
-                      <input type="text" class="form-control" name="tgl_beli" value="<?php echo $row['total_konfirmasi'] ?>" readonly>
+                      <input type="text" class="form-control" name="tgl_beli" value="<?= $row['total_konfirmasi'] ?>" readonly>
                     </div>
                   </div>
                   <div class="row form-group">
                     <label for="" class="col-sm-4 control-label">Bukti TF</label>
                     <div class="col-sm-8">
-                      <img id="myImg" src="<?php echo base_url($row['photo_konfirmasi']) ?>" alt="<?php echo $row['nama_konfirmasi'] ?>" style="width:100%;max-width:300px">
+                      <img id="myImg" src="<?= base_url($row['photo_konfirmasi']) ?>" alt="<?= $row['nama_konfirmasi'] ?>" style="width:100%;max-width:300px">
                     </div>
                   </div>
                 </div>
