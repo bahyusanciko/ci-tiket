@@ -18,10 +18,10 @@ Fitur :
 
 untuk backend hanya ada 2 level admin dan owner
 login admin pass admin untuk admin
-login owner pas admin untuk owner
+login owner pass admin untuk owner
 
-https://github.com/bahyusanciko/Tiket-Bus
+https://github.com/bahyusanciko/ci-tiket
 
 sebenernya ini saya mau publish sesudah penulisan kkp saya karena dengan dospem yg merumitkan sampai akhir semester lalu tak kelar yah saya tunda mending saya publish dulu aja mungkin dsni ada yg mau nulis tentang pemesanan tiket bus nya boleh share juga ya makasih 
 
-semoga bermanfaat tmn tmn 
+semoga bermanfaat tmn tmn :D
