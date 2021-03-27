@@ -125,7 +125,7 @@ class Login extends CI_Controller {
                'protocol'  => 'smtp',
                'smtp_host' => 'ssl://smtp.gmail.com',
                'smtp_user' => 'bahyu.sanciko@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => 'smkn1baso',      // Password gmail kamu
+               'smtp_pass' => 'ci-tiket',      // Password gmail kamu
                'smtp_port' => 465,
                'crlf'      => "rn",
                'newline'   => "rn"
