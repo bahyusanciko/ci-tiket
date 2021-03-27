@@ -59,7 +59,7 @@
 							<h2 class="combined" >
 						Tiket XTRANS dijamin resmi, pastikan Anda bisa pergi!				
 							</h2>
-						<p class="border-black" >
+						<p class="text-white" >
 							Sekarang cari tiket bus semakin mudah, bisa pesan online di Tiket XTRANS. Tak perlu repot ke terminal atau kantor agen, sekarang Anda bisa beli tiket dengan mudah. Booking Cepat dan Mudah. Bebas Pilih Kursi. Termurah Setiap Hari. Customer Service 24/7. Semua Kelas dan Rute.
 						</p>
 						<a href="<?php echo base_url() ?>tiket" class="primary-btn header-btn text-uppercase">Cari Tiket</a>

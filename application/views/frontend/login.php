@@ -35,7 +35,7 @@
 								<form action="<?php echo base_url() ?>login/cekuser" method="post">
 									<div class="form-group">
 										<div class="form-label-group">
-											<input type="text" id="username" name="username" class="form-control" placeholder="username" required="required" autofocus="autofocus">
+											<input type="text" id="username" name="username" class="form-control" placeholder="Username/Email" required="required" autofocus="autofocus">
 										</div>
 									</div>
 									<div class="form-group">
