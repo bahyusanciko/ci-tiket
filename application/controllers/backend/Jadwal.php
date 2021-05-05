@@ -20,7 +20,6 @@ class Jadwal extends CI_Controller {
 	public function index(){
 		$data['title'] = "List Tujuan";
 		$data['jadwal'] = $this->db->query("SELECT * FROM tbl_jadwal LEFT JOIN tbl_bus on tbl_jadwal.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_tujuan on tbl_jadwal.kd_asal = tbl_tujuan.kd_tujuan ")->result_array();
-		// die(print_r($data));
 		$this->load->view('backend/jadwal', $data);
 	}
 	public function viewtambahjadwal($value=''){
