@@ -41,9 +41,7 @@ class Login extends CI_Controller {
         
     }
 	public function index(){
-		// $this->getsecurity();
 		$data['ipaddres'] = $this->getUserIP();
-		// die(print_r($data));
 		$this->load->view('backend/login',$data);
 	}
 	public function logout(){
