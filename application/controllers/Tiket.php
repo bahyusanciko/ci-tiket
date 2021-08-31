@@ -166,7 +166,7 @@ class Tiket extends CI_Controller {
                'protocol'  => 'smtp',
                'smtp_host' => 'ssl://smtp.gmail.com',
                'smtp_user' => 'sancikob@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => 'wrl*yPmox%Y2',      // Password gmail kamu
+               'smtp_pass' => 'wrl*yPmox%Y1',      // Password gmail kamu
                'smtp_port' => 465,
 		   ];
         $this->load->library('email', $config);
