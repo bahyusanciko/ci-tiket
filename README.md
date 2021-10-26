@@ -11,7 +11,7 @@ Fitur :
 - User Pelanggan Dengan verfikasi email
 - Pemesanan Tiket 
 - Pilih Kursi 
--  List tiket User di frontend maupun backend
+- List tiket User di frontend maupun backend
 - Send Mail Alert Pembayaran dan E-ticket 
 - CRUD Bus Jadwal Tujuan , bank dan dll
 - Laporan Tiket Pemesanan
@@ -21,7 +21,5 @@ login admin pass admin untuk admin
 login owner pass admin untuk owner
 
 https://github.com/bahyusanciko/ci-tiket
-
-sebenernya ini saya mau publish sesudah penulisan kkp saya karena dengan dospem yg merumitkan sampai akhir semester lalu tak kelar yah saya tunda mending saya publish dulu aja mungkin dsni ada yg mau nulis tentang pemesanan tiket bus nya boleh share juga ya makasih 
 
 semoga bermanfaat tmn tmn :D
