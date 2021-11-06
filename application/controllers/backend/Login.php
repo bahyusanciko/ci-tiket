@@ -65,8 +65,8 @@ class Login extends CI_Controller {
             'nama_admin'     => $getUser->nama_admin,
             'img_admin'	=> $getUser->img_admin,
             'email_admin'   => $getUser->email_admin,
-            'telpon_admin'   => $getUser->telpon_admin,
-            'alamat_admin'	=> $getUser->alamat_admin,
+            // 'telpon_admin'   => $getUser->telpon_admin,
+            // 'alamat_admin'	=> $getUser->alamat_admin,
             'level'	=> $getUser->level_admin
         );
         // die(print_r($sess));
