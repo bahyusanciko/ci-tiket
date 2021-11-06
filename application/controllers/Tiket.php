@@ -39,16 +39,20 @@ class Tiket extends CI_Controller {
 			if ($tujuan == $data['asal']['kota_tujuan']) {
 				$this->session->set_flashdata('message', 'swal("Cek", "Tujuan dan Asal tidak boleh sama", "error");');
     			redirect('tiket');
-			}else{
-				for ($i=0; $i < count($data['jadwal']); $i++) { 
-					$data['kursi'][$i] = $this->db->query("SELECT count(no_kursi_order) FROM tbl_order WHERE kd_jadwal = '".$data['jadwal'][$i]['kd_jadwal']."' AND tgl_berangkat_order = '".$data['tanggal']."' AND asal_order = '".$asal."'")->result_array();
-				};
-				$this->load->view('frontend/cekjadwal',$data);
 			}
 		}else{
-			$this->session->set_flashdata('message', 'swal("Kosong", "Jadwal Tidak Ada", "error");');
-    		redirect('tiket');
+			if ($data['tanggal'] > date('Y-m-d')) {
+				$data['jadwal'] = $this->db->query("SELECT * FROM tbl_jadwal LEFT JOIN tbl_bus on tbl_jadwal.kd_bus = tbl_bus.kd_bus LEFT JOIN tbl_tujuan on tbl_jadwal.kd_tujuan = tbl_tujuan.kd_tujuan WHERE tbl_jadwal.wilayah_jadwal ='$tujuan' AND tbl_jadwal.kd_asal = '$asal'")->result_array();
+			}else{
+				$this->session->set_flashdata('message', 'swal("Kosong", "Jadwal Tidak Ada", "error");');
+				redirect('tiket');
+			}
 		}
+		for ($i=0; $i < count($data['jadwal']); $i++) { 
+			$data['kursi'][$i] = $this->db->query("SELECT count(no_kursi_order) FROM tbl_order WHERE kd_jadwal = '".$data['jadwal'][$i]['kd_jadwal']."' AND tgl_berangkat_order = '".$data['tanggal']."' AND asal_order = '".$asal."'")->result_array();
+		};
+		$this->load->view('frontend/cekjadwal',$data);
+
 	}
 	public function beforebeli($jadwal="",$asal='',$tanggal=''){
 		$array = array(
