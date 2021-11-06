@@ -78,13 +78,10 @@
 													<?php if (in_array(array('no_kursi_order' => '1'), $kursi)) { echo "disabled checked";} ?>>&nbsp;1
 											</label>
 											<!--=================================================START 3A=========================================================-->
-											
-										</td>
-										<td class='btn-group' width='139'>
-											<!--=================================================START 3C=========================================================-->
 											<label class='btn btn-primary'>
 												<a value='' autocomplete='off' disabled='disabled'>SUPIR</a>
 											</label>
+									
 										</td>
 									</tr>
 									<tr>
