@@ -16,7 +16,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
             <!-- Page Heading -->
-            <h1 class="h3 mb-4 text-gray-800">DashBoard</h1>
+            <h1 class="h3 mb-4 text-gray-800">Laporan</h1>
             <table class="table table-bordered table-condensed" style="font-size:12px;" id="mydata">
                 <thead>
                     <tr>

@@ -2,7 +2,7 @@
 <head>
     <title>Laporan Data Tiket Pertanggal</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/laporan.css')?>"/>
+    <link rel="stylesheet" href="<?= base_url('assets/css/laporan.css')?>"/>
 </head>
 <body onload="window.print()" >
 <div id="laporan">
@@ -27,7 +27,7 @@
 <table border="1" align="center" style="width:900px;margin-bottom:20px;">
 <thead>
 <tr>
-<th colspan="11" style="text-align:left;">Laporan Dari Tanggal <?php echo $mulai ?> Sampai <?php echo $sampai ?> </th>
+<th colspan="11" style="text-align:left;">Laporan Dari Tanggal <?= $mulai ?> Sampai <?= $sampai ?> </th>
 </tr>
     <tr>
         <th>No Tiket</th>
@@ -41,12 +41,12 @@
 <tbody>
     <?php foreach ($laporan as $row) { ?>
     <tr>
-        <td style="text-align:center;"><?php echo $row['kd_tiket'];?></td>
-        <td style="padding-left:5px;"><?php echo $row['kd_order'];?></td>
-        <td style="text-align:center;"><?php echo $row['nama_tiket'];?></td>
-        <td style="text-align:center;"><?php echo $row['umur_tiket'];?></td>
-        <td style="text-align:center;"><?php echo $row['kursi_tiket'];?></td>
-        <td style="text-align:left;"><?php echo 'Rp '.number_format($row['harga_tiket']);?></td>
+        <td style="text-align:center;"><?= $row['kd_tiket'];?></td>
+        <td style="padding-left:5px;"><?= $row['kd_order'];?></td>
+        <td style="text-align:center;"><?= $row['nama_tiket'];?></td>
+        <td style="text-align:center;"><?= $row['umur_tiket'];?></td>
+        <td style="text-align:center;"><?= $row['kursi_tiket'];?></td>
+        <td style="text-align:left;"><?= 'Rp '.number_format($row['harga_tiket']);?></td>
     </tr>
     <?php } ?>
 </tbody>
@@ -54,7 +54,7 @@
 
     <tr>
         <td colspan="5" style="text-align:center;"><b>Total</b></td>
-        <td style="text-align:left;"><b><?php echo 'Rp '.number_format($total);?></b></td>
+        <td style="text-align:left;"><b><?= 'Rp '.number_format($total);?></b></td>
     </tr>
 </tfoot>
 </table>
@@ -64,7 +64,7 @@
 </table>
 <table align="center" style="width:800px; border:none;margin-top:5px;margin-bottom:20px;">
     <tr>
-        <td align="right">Jakarta, <?php echo date('d-M-Y')?></td>
+        <td align="right">Jakarta, <?= date('d-M-Y')?></td>
     </tr>
     <tr>
         <td align="right"></td>
@@ -74,7 +74,7 @@
     <td><br/><br/><br/><br/></td>
     </tr>    
     <tr>
-        <td align="right">( <?php echo $this->session->userdata('username_admin');?> )</td>
+        <td align="right">( <?= $this->session->userdata('username_admin');?> )</td>
     </tr>
     <tr>
         <td align="center"></td>
