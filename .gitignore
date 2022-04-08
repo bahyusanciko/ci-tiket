@@ -4,7 +4,6 @@ application/cache/*
 !application/cache/index.html
 
 application/logs/*
-application/config/database.php
 !application/logs/index.html
 
 !application/*/.htaccess
@@ -30,3 +29,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
+
+.env
