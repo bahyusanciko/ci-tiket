@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+# Load phpdotenv
+$hook['pre_system'] = function() {
+ $dotenv = Dotenv\Dotenv::create(APPPATH);
+ $dotenv->load();
+};
 /*
 | -------------------------------------------------------------------------
 | Hooks
