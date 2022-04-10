@@ -166,14 +166,16 @@ class Tiket extends CI_Controller {
 		$message = $this->load->view('frontend/sendmail',$send, TRUE);
 		$to 	 = $this->session->userdata('email');
         $config = [
-               'mailtype'  => 'html',
-               'charset'   => 'utf-8',
-               'protocol'  => 'smtp',
-               'smtp_host' => 'ssl://smtp.gmail.com',
-               'smtp_user' => 'sancikob@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => 'wrl*yPmox%Y1',      // Password gmail kamu
-               'smtp_port' => 465,
-		   ];
+			'mailtype'  => 'html',
+			'charset'   => 'utf-8',
+			'protocol'  => getenv('MAIL_DRIVER'),
+			'smtp_host' => getenv('MAIL_HOST'),
+			'smtp_user' => getenv('MAIL_USERNAME'), // Ganti dengan email gmail kamu
+			'smtp_pass' => getenv('MAIL_PASSWORD'),    // Password gmail kamu
+			'smtp_port' => getenv('MAIL_PORT'),
+			'crlf'      => "rn",
+			'newline'   => "rn"
+		];
         $this->load->library('email', $config);
         $this->email->set_newline("\r\n");
         $this->email->from('XTRANS');

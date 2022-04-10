@@ -92,10 +92,11 @@ class Order extends CI_Controller {
 			   'mailtype'  => 'html',
                'charset'   => 'utf-8',
                'protocol'  => 'smtp',
-               'smtp_host' => 'ssl://smtp.gmail.com',
-               'smtp_user' => 'sancikob@gmail.com',    // Ganti dengan email gmail kamu
-               'smtp_pass' => 'wrl*yPmox%Y1',      // Password gmail kamu
-               'smtp_port' => 465,
+               'protocol'  => getenv('MAIL_DRIVER'),
+               'smtp_host' => getenv('MAIL_HOST'),
+               'smtp_user' => getenv('MAIL_USERNAME'), // Ganti dengan email gmail kamu
+               'smtp_pass' => getenv('MAIL_PASSWORD'),    // Password gmail kamu
+               'smtp_port' => getenv('MAIL_PORT'),
                'crlf'      => "rn",
                'newline'   => "rn"
 		);
