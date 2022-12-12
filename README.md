@@ -1,7 +1,14 @@
+<p align="center"><img src="https://cdn-icons-png.flaticon.com/512/3774/3774090.png"></p>
+
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
+
 # Tiket-Bus
 
-![](https://img.shields.io/badge/license-MIT-blue.svg)
-![](https://img.shields.io/badge/status-stable-green.svg)
 
 Saya ada aplikasi pemesanan tiket bus sederhana berbasis web menggunakan ci 3.1.10
 
